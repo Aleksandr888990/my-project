@@ -11,25 +11,38 @@ import ReactDOM from 'react-dom/client'
 //     React.createElement('li', null, 'list Item 2'),
 //     React.createElement('li', null, 'list Item 3')
 // )
-const h1 = <h1 id="title">Hello React.js</h1>
+// const h1 = <h1 id="title">Hello React.js</h1>
+// ================================================================
 
-let a = 10
-let b = 'hello test'
-const list = (
-    <ul>
-        <li>list Item {a + 10 + 10}</li>
-        <li>list Item {b}</li>
-        <li>list Item 3</li>
-    </ul>
-)
+// let a = 10
+// let b = 'hello test'
+// const list = (
+//     <ul>
+//         <li>list Item {a + 10 + 10}</li>
+//         <li>list Item {}</li>
+//         <li>list Item 3</li>
+//     </ul>
+// )
 
-const content = (
+// const content = (
+//   <div>
+//     {h1}
+//     {list}
+//   </div>
+// )
+// ======================================================
+
+const Title = () =>{
+  return <h1>Hello App.js</h1>
+}
+
+function App() {
+  return 
   <div>
-    {h1}
-    {list}
+    <Title />
   </div>
-)
+}
 
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
-root.render(<React.StrictMode>{content}</React.StrictMode>)
+root.render(<React.StrictMode><App /></React.StrictMode>)
