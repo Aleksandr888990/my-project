@@ -12,10 +12,13 @@ import ReactDOM from 'react-dom/client'
 //     React.createElement('li', null, 'list Item 3')
 // )
 const h1 = <h1 id="title">Hello React.js</h1>
+
+let a = 10
+let b = 'hello test'
 const list = (
     <ul>
-        <li>list Item 1</li>
-        <li>list Item 2</li>
+        <li>list Item {a + 10 + 10}</li>
+        <li>list Item {b}</li>
         <li>list Item 3</li>
     </ul>
 )
