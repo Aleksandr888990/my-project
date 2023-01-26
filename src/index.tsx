@@ -1,48 +1,41 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-// const h1 = React.createElement('h1', {id:'title'}, 'Hello React')
-// console.log(h1)
 
-// const list = React.createElement(
-//     'ul',
-//     null,
-//     React.createElement('li', null, 'list Item 1'),
-//     React.createElement('li', null, 'list Item 2'),
-//     React.createElement('li', null, 'list Item 3')
-// )
-// const h1 = <h1 id="title">Hello React.js</h1>
-// ================================================================
 
-// let a = 10
-// let b = 'hello test'
-// const list = (
-//     <ul>
-//         <li>list Item {a + 10 + 10}</li>
-//         <li>list Item {}</li>
-//         <li>list Item 3</li>
-//     </ul>
-// )
-
-// const content = (
-//   <div>
-//     {h1}
-//     {list}
-//   </div>
-// )
-// ======================================================
-
-const Title = () =>{
-  return <h1>Hello App.js</h1>
+interface ITitleProps {
+  text: string
 }
 
-function App() {
+type ContentProps = {
+    text1: string
+    text2: string
+    year: number
+}
+
+const Title = (props: ITitleProps) => {
+  console.log(props)
+    return <h1>Hello {props.text}</h1>
+}
+const Content = (props: ContentProps) => {
+    return (
+        <React.Fragment>
+            <p>{props.text1}</p>
+            <p>{props.text2}</p>
+            <div>Year: {props.year}</div>
+        </React.Fragment>
+    )
+}
+
+function App () {
   return 
-  <div>
-    <Title />
-  </div>
+  <>
+      <Title text="React" />
+      <Title text="TS" />
+      <Content text1="Hello world" text2="Hello world2" year={2023}/>
+  </>
 }
 
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
-root.render(<React.StrictMode><App /></React.StrictMode>)
+root.render(<React.StrictMode><App/></React.StrictMode>)
