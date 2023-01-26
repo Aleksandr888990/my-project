@@ -28,12 +28,13 @@ const Content = (props: ContentProps) => {
 }
 
 function App () {
-  return 
+  return (
   <>
       <Title text="React" />
       <Title text="TS" />
       <Content text1="Hello world" text2="Hello world2" year={2023}/>
   </>
+  )
 }
 
 
