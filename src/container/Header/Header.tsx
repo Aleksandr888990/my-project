@@ -6,7 +6,7 @@ import { Container } from '@mui/material'
 import Menu from 'components/Menu/Menu'
 import './Header.scss'
 import Logo from 'components/Logo/Logo'
-
+import CartHeader from 'components/CartHeader/CartHeader'
 
 type Props = {}
 // 'xs' | 'sm' | 'md' | 'lg' | 'xl' - размеры maxWidth
@@ -27,6 +27,7 @@ const Header = (props: Props) => {
                     </IconButton>
                     <Logo />
                     <Menu />
+                    <CartHeader />
                 </Toolbar>
             </Container>
         </AppBar>
