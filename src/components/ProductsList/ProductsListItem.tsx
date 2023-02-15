@@ -6,7 +6,6 @@ import {
     TextField,
 } from '@mui/material'
 import { useState } from 'react'
-
 import './ProductsListItem.scss'
 
 type Props = {
@@ -28,8 +27,12 @@ const ProductsListItem = ({
     price,
     image,
 }: Props) => { 
-
+    
     const [count,setCount] = useState<number>(1)
+    const onDecrement = () => {
+        setCount(count+1)
+        
+    }
     
         return (
             <Card variant="outlined" className="product">
@@ -43,10 +46,7 @@ const ProductsListItem = ({
                     <div className="product-features">{capacity} Gb</div>
                     <div className="product-price">{price}$</div>
                     <div className="product-quantity">
-                        <Button
-                            variant="outlined"
-                            onClick={() => setCount(count - 1)}
-                        >
+                        <Button variant="outlined" onClick={onDecrement}>
                             -
                         </Button>
                         <TextField size="small" value={count} />
