@@ -11,7 +11,7 @@ import CartHeader from 'components/CartHeader/CartHeader'
 type Props = {
     cartData: {
         totalCount: number
-        totalPrise: number
+        totalPrice: number
     }
 }
 // 'xs' | 'sm' | 'md' | 'lg' | 'xl' - размеры maxWidth

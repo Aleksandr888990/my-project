@@ -15,55 +15,64 @@ type Props = {
     capacity: string
     price: number
     image: string
+    addProductToCart: (count: number, price: number) => void
 }
 
 
 
 const ProductsListItem = ({
-    title, 
-    description, 
-    type, 
-    capacity, 
+    title,
+    description,
+    type,
+    capacity,
     price,
     image,
-}: Props) => { 
-    
-    const [count,setCount] = useState<number>(1)
+    addProductToCart,
+}: Props) => {
+    const [count, setCount] = useState<number>(1)
     const onDecrement = () => {
-        setCount(count-1)
-        
+        setCount(count - 1)
     }
-    
-        return (
-            <Card variant="outlined" className="product">
-                <CardContent>
-                    <div className="product-image">
-                        <img src={image} alt="" />
-                    </div>
-                    <div className="product-title">{title}</div>
-                    <div className="product-desc">{description}</div>
-                    <div className="product-features">{type}</div>
-                    <div className="product-features">{capacity} Gb</div>
-                    <div className="product-price">{price}$</div>
-                    <div className="product-quantity">
-                        <Button variant="outlined" onClick={onDecrement} disabled={count<=1}>
-                            -
-                        </Button>
-                        <TextField size="small" value={count} />
-                        <Button
-                            variant="outlined"
-                            onClick={() => setCount(count + 1)}
-                        >
-                            +
-                        </Button>
-                    </div>
-                </CardContent>
-                <CardActions className="product-btn-wrap">
-                    <Button>Add to cart</Button>
-                </CardActions>
-            </Card>
-        )
-    }
+
+    return (
+        <Card variant="outlined" className="product">
+            <CardContent>
+                <div className="product-image">
+                    <img src={image} alt="" />
+                </div>
+                <div className="product-title">{title}</div>
+                <div className="product-desc">{description}</div>
+                <div className="product-features">{type}</div>
+                <div className="product-features">{capacity} Gb</div>
+                <div className="product-price">{price}$</div>
+                <div className="product-quantity">
+                    <Button
+                        variant="outlined"
+                        onClick={onDecrement}
+                        disabled={count <= 1}
+                    >
+                        -
+                    </Button>
+                    <TextField size="small" value={count} />
+                    <Button
+                        variant="outlined"
+                        onClick={() => setCount(count + 1)}
+                    >
+                        +
+                    </Button>
+                </div>
+            </CardContent>
+            <CardActions className="product-btn-wrap">
+                <Button
+                    variant="outlined"
+                    onClick={() => addProductToCart(count, price)}
+                >
+                    Add to cart
+                </Button>
+            </CardActions>
+        </Card>
+    )
+}
 
 
 export default ProductsListItem

@@ -4,26 +4,34 @@ import Main from 'container/Main/Main'
 import CssBaseline from '@mui/material/CssBaseline'
 import { StyledEngineProvider } from '@mui/material/styles'
 import { useState } from 'react'
+// import { promises } from 'stream'
 
 type Props = {}
 type cartDataProps = {
     totalCount: number
-    totalPrise: number
+    totalPrice: number
 }
 
 const App = (props: Props) => {
 
     const [cartData, setCartData] = useState<cartDataProps>({
         totalCount: 10,
-        totalPrise: 100,
+        totalPrice: 100,
     })
+
+    const addProductToCart = (count:number, price:number) => {
+        setCartData((prevState) => ({
+            totalCount: prevState.totalCount + count,
+            totalPrice: prevState.totalPrice + count * price,
+        }))
+    }
 
     return (
         <>
             <StyledEngineProvider injectFirst>
                 <CssBaseline />
                 <Header cartData={cartData} />
-                <Main />
+                <Main addProductToCart={addProductToCart} />
                 <Footer />
             </StyledEngineProvider>
         </>
