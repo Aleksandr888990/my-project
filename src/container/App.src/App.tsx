@@ -37,18 +37,27 @@ const App = (props: Props) => {
             <StyledEngineProvider injectFirst>
                 <CssBaseline />
                 <Header productsInCart={productsInCart} />
-                <Container 
+                <Container
                     sx={{
                         padding: '60px 0',
                     }}
                 >
                     <Routes>
-                        <Route path='/' element={<Home addProductToCart={addProductToCart} />}
+                        <Route
+                            path="/"
+                            element={
+                                <Home addProductToCart={addProductToCart} />
+                            }
                         />
-                        <Route path="cart" element={<CartPage />} />
+                        <Route
+                            path="cart"
+                            element={
+                                <CartPage productsInCart={productsInCart} />
+                            }
+                        />
                     </Routes>
                 </Container>
-                
+
                 {/* // <Main addProductToCart={addProductToCart} /> */}
                 <Footer />
             </StyledEngineProvider>
